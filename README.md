@@ -1,30 +1,32 @@
-# Simulación y Análisis de Señales con la Transformada de Fourier
+import numpy as np
+import matplotlib.pyplot as plt
 
-Este repositorio contiene una actividad educativa sobre el análisis de señales utilizando la Transformada de Fourier en Python.
+# Definición del tiempo
+t = np.linspace(-1, 1, 1000)
 
-## Objetivos
-- Representar señales en el dominio del tiempo.
-- Aplicar la Transformada de Fourier (FFT).
-- Visualizar el espectro de frecuencia (magnitud y fase).
-- Analizar propiedades como linealidad, desplazamiento y escalamiento.
+# Señales básicas
+pulso = np.where(np.abs(t) <= 0.2, 1, 0)
+escalon = np.where(t >= 0, 1, 0)
+senoidal = np.sin(2 * np.pi * 5 * t)
 
-## Contenido
-- `fourier_analysis.py`: Código en Python con generación y análisis de señales.
-- `documento.pdf`: Informe teórico-práctico en formato Word/PDF.
+# FFT para el pulso
+fft_pulso = np.fft.fft(pulso)
+freq = np.fft.fftfreq(len(t), d=(t[1] - t[0]))
 
-## Requisitos
-- Python 3.x
-- NumPy
-- Matplotlib
+# Graficar pulso y su espectro
+plt.figure(figsize=(12, 6))
+plt.subplot(3,1,1)
+plt.plot(t, pulso)
+plt.title("Pulso Rectangular")
 
-## Instrucciones de uso
-```bash
-pip install numpy matplotlib
-python fourier_analysis.py
-```
+plt.subplot(3,1,2)
+plt.plot(freq, np.abs(fft_pulso))
+plt.title("Magnitud FFT del Pulso")
 
-## Créditos
-Desarrollado por **Alberto Hernandez Bravo** como parte de la actividad formativa de la asignatura *Señales y Sistemas*.
+plt.subplot(3,1,3)
+plt.plot(freq, np.angle(fft_pulso))
+plt.title("Fase FFT del Pulso")
 
-## Licencia
-Uso educativo exclusivamente.
+plt.tight_layout()
+plt.show()
+
