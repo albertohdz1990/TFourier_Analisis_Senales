@@ -11,7 +11,6 @@ Este repositorio contiene una actividad educativa sobre el análisis de señales
 ## Contenido
 - `fourier_analysis.py`: Código en Python con generación y análisis de señales.
 - `documento.pdf`: Informe teórico-práctico en formato Word/PDF.
-- `presentacion.pptx`: Presentación para exposición en línea.
 
 ## Requisitos
 - Python 3.x
@@ -25,7 +24,7 @@ python fourier_analysis.py
 ```
 
 ## Créditos
-Desarrollado por **Alberto H. Bravo** como parte de la actividad formativa de la asignatura *Señales y Sistemas*.
+Desarrollado por **Alberto Hernandez Bravo** como parte de la actividad formativa de la asignatura *Señales y Sistemas*.
 
 ## Licencia
 Uso educativo exclusivamente.
